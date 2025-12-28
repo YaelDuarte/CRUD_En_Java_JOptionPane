@@ -33,7 +33,8 @@ public class Metodos {
 	}
 	
 	/*
-	 * 
+	 *Esta funcion se encargara de recorrer toda la lista para buscar el nombre que se indica 
+	 *en caso de ue se encuentre se soltara un mensaje y la bandera se activara  
 	 */
 	
 	public void BuscarNombre(String nombre) {
@@ -50,6 +51,34 @@ public class Metodos {
 			JOptionPane.showMessageDialog(null, "El nombre existe y se encuentra en el arreglo");
 		}else {
 			JOptionPane.showMessageDialog(null, "El nombre no existe, por favor verifica!");
+		}
+	}
+	
+	/*
+	 * Funcion que se encargara de poder eliminar el nombre seleccionado y hacer que el Array se recorra
+	 */
+	
+	public void EliminarNombres(String nombre) {
+		boolean nombreEliminado = false;
+		
+		for(int i=0;i<conteoNombres;i++) {
+			if(nombre.equalsIgnoreCase(listaNombres[i])) {
+				for(int j = i; j < conteoNombres - 1; j++) {
+	                listaNombres[j] = listaNombres[j + 1];
+	            }
+				listaNombres[conteoNombres-1] = null;
+				conteoNombres--;
+				nombreEliminado = true;
+				break;
+			}
+		}
+		
+		if(nombreEliminado) {
+			JOptionPane.showMessageDialog(null, "El nombre fue eliminado correctamente","Exito",
+					JOptionPane.INFORMATION_MESSAGE);
+		}else{
+			JOptionPane.showMessageDialog(null, "El nombre no existe/La lista esta vacia",
+					"Error",JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	

@@ -10,7 +10,7 @@ public class Principal {
 		
 		do {
 			seleccion = Integer.parseInt(JOptionPane.showInputDialog("Bienvenido\n1.Agregar Nombre\n2.Ver lista de nombres\n3.Buscar Nombre"
-					+ "\n4.Salir"));
+					+ "\n4.Eliminar nombre\n5.Salir"));
 			
 			switch(seleccion) {
 			case 1:
@@ -24,8 +24,20 @@ public class Principal {
 				String nombreABuscar = JOptionPane.showInputDialog("Ingresa el nombre que deseas buscar");
 				metodosC.BuscarNombre(nombreABuscar);
 				break;
+			case 4:
+				String nombreAEliminar = JOptionPane.showInputDialog("Ingresa el nombre que deseas eliminar");
+				metodosC.EliminarNombres(nombreAEliminar);
+				break;
+			case 5:
+				JOptionPane.showMessageDialog(null, "Gracias por usar el CRUD, hasta luego!",
+			"Adios",JOptionPane.INFORMATION_MESSAGE);
+				break;
+			default:
+				JOptionPane.showMessageDialog(null, "Opcion no valida, por favor revisa",
+			"Error Opcion",JOptionPane.ERROR_MESSAGE);
+				 break;
 			}
 			
-		}while(seleccion !=4);
+		}while(seleccion !=5);
 	}
 }
